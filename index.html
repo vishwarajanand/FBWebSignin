@@ -4,63 +4,29 @@
 <head>
     <title>FB Signin Demo</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id"
-        content="805202499191-cki2odmeua6pvoi1tdku2asdkldpntch.apps.googleusercontent.com">
+    <script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=279068716055138&autoLogAppEvents=1"
+        nonce="e6fMKCTB"></script>
 </head>
 
 <body>
     <b>Notes:</b>
 
     <ol>
-        <li> This is a demo for Google Signin in websites.
+        <li> This is a demo for FB Signin in websites.
         </li>
         <li> Source is hosted at <a
-                href="https://github.com/vishwarajanand/FBWebSignin">https://github.com/vishwarajanand/GoogleWebSignin</a>
+                href="https://github.com/vishwarajanand/FBWebSignin">https://github.com/vishwarajanand/FBWebSignin</a>
         </li>
     </ol>
     <br>
-    <div id="btn-login" class="g-signin2" data-onsuccess="onSignIn"></div>
-    <a id="btn-logout" style="float:right;" href="#" hidden onclick="signOut();">Sign out</a>
-    <br />
-    <div id="data"></div>
-    <br /><br /><br /><br />
-
-    <script>
-        var profile = null;
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                // show login and hide logout
-                $("#btn-login").show();
-                $("#btn-logout").hide();
-                $("#data").html("User logged off");
-                console.log('User signed out.');
-            });
-        }
-        function onSignIn(googleUser) {
-            profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-            var data = $('<div/>');
-            data.append($('<div/>').html("Id: " + profile.getId()));
-            data.append($('<br/>'));
-            data.append($('<div/>').html("Name: " + profile.getName()));
-            data.append($('<br/>'));
-            data.append($('<div/>').html("Email: " + profile.getEmail()));
-            data.append($('<br/>'));
-            data.append($('<div/>').html('<img src="' + profile.getImageUrl() + '" alt="Ad Image Preview" height="200" width="200">'));
-            // Appending the header to the table 
-            $("#data").html(data);
-
-            // hide login and show logout
-            $("#btn-login").hide();
-            $("#btn-logout").show();
-        }
-    </script>
+    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default"
+        data-auto-logout-link="false" data-use-continue-as="false"></div>
+    <br>
+    <br>
+    <div id="fb-root"></div>
+    <br>
+    <br>
 </body>
 
 </html>
