@@ -20,12 +20,7 @@
         </li>
     </ol>
     <br>
-    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default"
-        data-auto-logout-link="false" data-use-continue-as="false"></div>
-    <br>
-    <br>
-    <div id="fb-root"></div>
-    <br>
+
     <script>
 
         function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
@@ -66,7 +61,7 @@
             FB.api('/me', function (response) {
                 console.log('Successful login for: ' + JSON.stringify(response));
                 document.getElementById('status').innerHTML =
-                    'Thanks for logging in, ' + response.name + '!';
+                    'Thanks for logging in: ' + JSON.stringify(response);
             });
         }
 
@@ -75,7 +70,9 @@
 
     <!-- The JS SDK Login Button -->
 
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" class="fb-login-button" data-width=""
+        data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false"
+        data-use-continue-as="false">
     </fb:login-button>
 
     <div id="status">
