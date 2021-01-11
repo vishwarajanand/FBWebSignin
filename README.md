@@ -18,4 +18,4 @@ Hosted on Github Pages:
 
 # Blog
 
-Blog is published at: hhttps://vishwarajanand.com/tech/released-facebook-signin-website/
+Blog is published at: https://vishwarajanand.com/tech/released-facebook-signin-website/
